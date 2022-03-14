@@ -1,0 +1,17 @@
+{
+    "name": "nodejs_hello_world_a3",
+    "version": "1.0.0",
+    "description": "test",
+    "main": "test.js",
+    "scripts": {
+      "test": "mocha"
+    },
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+      "crypto-js": "^4.1.1",
+      "express": "^4.17.3",
+      "mocha": "^9.2.1",
+      "nano": "^9.0.5"
+    }
+  }
