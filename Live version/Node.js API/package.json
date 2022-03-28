@@ -1,0 +1,21 @@
+{
+  "name": "node.js-api",
+  "version": "1.0.0",
+  "description": "Node.js API for CS4800 calendar project",
+  "main": "app.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.3",
+    "mongoose": "^6.2.6"
+  },
+  "devDependencies": {
+    "mocha": "^9.2.2"
+  }
+}
