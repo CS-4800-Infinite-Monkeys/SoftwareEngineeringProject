@@ -5,6 +5,15 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
 }
 
 code {
@@ -17,9 +26,14 @@ code {
   margin-right:auto;
 }
 
+.textInput{
+  width: 300px;
+  height: calc(5px + 2vmin);
+}
+
 .formLabel {
   display: inline-block;
-  width: 150px;
+  width: 300px;
   text-align:right;
   padding-right: 12px;
 }

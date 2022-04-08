@@ -1,57 +1,35 @@
-import React from "react"
+import {useState} from "react"
 import "../index.css"
 
-class LoginForm extends React.Component{
-    constructor(props){
-        super(props);
-        this.state={username: "", password: ""};
-
-        this.handleChange = this.handleChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
-    }    
-
-    handleChange(event){
-        const name = event.target.name;
-        this.setState({
-            [name]: event.target.value
-        })
-    }
-
-    handleSubmit(event){
-        alert("You submitted " + this.state.username + " and " + this.state.password)
-        event.preventDefault();
-    }
-
-    render(){
-        return (<>
-            <body>
-                <form>
-                    <label>Email Address: 
-                        <input type="text" value={this.state.username} onChange={this.handleInputChange}></input>
-                    </label>
-                    <label>Password:
-                        <input type="text" onChange={this.handleInputChange}></input>
-                    </label>
-                </form>
-            </body>
-            </>)
-    }
-}
 const Signin = () => {
+    const [inputs, setInputs] = useState({})
+
+    const handleChange = (event) => {
+        const name = event.target.name
+        const value = event.target.value
+        setInputs(values => ({...values, [name]: value}))
+    }
+
+    const handleSubmit = (event) => {
+        event.preventDefault()
+        console.log(inputs)
+    }
+
     return (<>
-        <body>
-            <form>
-                <label>Email Address: 
-                    <input type="text"></input>
-                </label>
+        <div>
+            <h1>Welcome back!</h1>
+            <form onSubmit={handleSubmit}>
+                <label className="formLabel">Email Address:</label> 
+                    <input type="text" className="textInput" name="useremail" onChange={handleChange} value={inputs.useremail || ""}></input>
                 <br/>
-                <label>Password:    
-                    <input type="text"></input>
-                </label>
                 <br/>
-                <input type="submit" value="Submit"></input>
+                <label className="formLabel">Password:</label>    
+                    <input type="password" className="textInput" name="userpassword" onChange={handleChange} value={inputs.userpassword || ""}></input>
+                <br/>
+                <br/>
+                <input type="submit" className="buttonClass" value="Submit"></input>
             </form>
-        </body>
+        </div>
         </>)
 }
 export default Signin
