@@ -1,33 +1,31 @@
 import "../index.css"
-import Jan2022 from "./calendar/January2022"
-import Feb2022 from "./calendar/February2022"
-import Mar2022 from "./calendar/March2022"
-import Apr2022 from "./calendar/April2022"
+import {useState, useCallback} from 'react'
+import Calendar from 'react-calendar'
+import './calendar/calendar.css'
 
-var months = [Jan2022, Feb2022, Mar2022, Apr2022]
-let today = new Date();
-let month = today.getMonth();
-let Month = months[month]
+//const datesToAddClassTo = [tomorrow, in3Days, in5Days];
 
-function decrementMonth(){
-    month -= 1
-    Month = months[month]
-    console.log(month)
-}
-
-function incrementMonth(){
-    month += 1
-    Month = months[month]
-    console.log(month)
+function tileClassName({ date, view }) {
+  // Add class to tiles in month view only
+  if (view === 'month') {
+      return 'react-calendar__month-view__days__day--weekday';    
+  }
 }
 
 const UserPortal = () => {
-    const Month = months[month];
-    return(<>
-        <div style={{display: "inline-block"}}>
-            <button onClick={decrementMonth}>Previous</button><Month /><button onClick={incrementMonth}>Next</button>
-        </div>
-    </>)
+    const [value, onChange] = useState(new Date());
+  
+  return (
+    <div>
+      <h1>Your Calendar</h1>
+      <Calendar
+        className="react-calendar"
+        onChange={onChange}
+        value={value}
+        tileClassName={tileClassName}
+      />
+    </div>
+  );
 }
 
 export default UserPortal;
