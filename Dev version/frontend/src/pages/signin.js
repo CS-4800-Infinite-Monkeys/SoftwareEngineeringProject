@@ -1,35 +1,39 @@
-import {useState} from "react"
-import "../index.css"
+import React, {useState} from "react"
+import {Outlet, Link} from "react-router-dom";
+//import "../signin.css"
 
-const Signin = () => {
-    const [inputs, setInputs] = useState({})
+const SigninForm = ({Login, error}) => {
+//function SigninForm({ Login, error }) {
+    
+    const [details, setDetails] = useState({email: "", password: ""});  
+    
+    //begin
 
-    const handleChange = (event) => {
-        const name = event.target.name
-        const value = event.target.value
-        setInputs(values => ({...values, [name]: value}))
+
+    //end
+    const submitHandler = e => {
+        e.preventDefault();
+        Login(details);  //continue from HERE --> Login function???
     }
-
-    const handleSubmit = (event) => {
-        event.preventDefault()
-        console.log(inputs)
-    }
-
-    return (<>
-        <div>
-            <h1>Welcome back!</h1>
-            <form onSubmit={handleSubmit}>
-                <label className="formLabel">Email Address:</label> 
-                    <input type="text" className="textInput" name="useremail" onChange={handleChange} value={inputs.useremail || ""}></input>
-                <br/>
-                <br/>
-                <label className="formLabel">Password:</label>    
-                    <input type="password" className="textInput" name="userpassword" onChange={handleChange} value={inputs.userpassword || ""}></input>
-                <br/>
-                <br/>
-                <input type="submit" className="buttonClass" value="Submit"></input>
-            </form>
-        </div>
-        </>)
+    
+    
+    return (
+        <form onSubmit={submitHandler}>
+            <div className="form-inner">
+                <h2>Log In</h2>
+                {(error != "") ? ( <div className="error">{error}</div> ) : ""}
+                <div className="form-group">
+                    <label htmlFor="email">Email:</label>
+                    <input type="text" email="email" id="email" onChange={e => setDetails({...details, email: e.target.value})} value={details.email}></input>
+                </div>
+                <div className="form-group">
+                    <label htmlFor="password">Password:</label>
+                    <input type="text" password="password" id="password" onChange={e => setDetails({...details, password: e.target.value})} value={details.password}></input>
+                </div>
+            </div>
+            <input type="submit" value="LOG IN" />
+            <Link to="/home"><button className="buttonClass">Back to Home</button></Link> 
+        </form>  //<input type="submit" value="SIGNIN"></input>
+    )
 }
-export default Signin
+export default SigninForm
