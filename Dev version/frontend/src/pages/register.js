@@ -1,5 +1,7 @@
-import {useState} from "react"
-import "../index.css"
+import React, {useState} from "react"
+import {Outlet, Link} from "react-router-dom";
+import Home from "./home";
+import "../index.css";
 
 const Register = () => {
     const [inputs, setInputs] = useState({})
@@ -14,6 +16,7 @@ const Register = () => {
         event.preventDefault()
         console.log(inputs)
     }
+    
     return <>
     <h1>Create An Account</h1>
     <form onSubmit={handleSubmit}> 
@@ -39,6 +42,7 @@ const Register = () => {
         <br />
         <input type="submit" value="Submit" className="buttonClass"></input>        
     </form>
+    <Link to="/home"><button className="buttonClass">Back to Home</button></Link> 
     </>;
 };
 
