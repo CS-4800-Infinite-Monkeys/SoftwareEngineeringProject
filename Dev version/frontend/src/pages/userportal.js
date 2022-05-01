@@ -19,6 +19,7 @@ const UserPortal = () => {
     
   const [value, onChange] = useState(new Date());
 
+  /*
   //generic user for login testing
     const defaultUser = {
       email: "user@test.com",
@@ -31,7 +32,7 @@ const UserPortal = () => {
   const Login = (details) => {
       console.log(details);
 
-      if(details.email == defaultUser.email && details.password == defaultUser.password)  //here is where we incorporate database user credentials matching
+      if(details.email === defaultUser.email && details.password === defaultUser.password)  //here is where we incorporate database user credentials matching
       {
           console.log("Logged in Successfully");
           setUser({
@@ -52,11 +53,12 @@ const UserPortal = () => {
       });
       console.log("Logged out")
   }
-  //
+  //*/
+
   return (
-    
+    /*
     <div className="UserPortal">
-      {(user.email != "") ? (
+      {(user.email !== "") ? (
         <div>
         <h1><span>{user.email}</span> Calendar</h1>
         <Calendar
@@ -70,9 +72,9 @@ const UserPortal = () => {
       ) : (
         <SigninForm Login ={Login} error={error}/> 
       )}
-    </div>
+    </div>*/
 
-    /*
+    
     <div>
       <h1>Your Calendar</h1>
       <Calendar
@@ -83,7 +85,7 @@ const UserPortal = () => {
       />
       <Link to="/home"><button className="buttonClass">Log Out</button></Link>
     </div>
-    */
+    
   );
 }
 
