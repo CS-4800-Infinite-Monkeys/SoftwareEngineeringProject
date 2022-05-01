@@ -28,7 +28,7 @@ const UserPortal = () => {
   const [user, setUser] = useState({email: ""});
   const [error, setError] = useState("");
 
-  const Login = details => {
+  const Login = (details) => {
       console.log(details);
 
       if(details.email == defaultUser.email && details.password == defaultUser.password)  //here is where we incorporate database user credentials matching
