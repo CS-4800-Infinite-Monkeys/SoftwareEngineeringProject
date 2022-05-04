@@ -20,12 +20,12 @@ export default function CalendarHeader() {
       <button onClick={handleReset} className="border rounded py-2 px-4 mr-5">Today</button>
       <button onClick={handlePrevMonth}>
         <span className="material-icons-outlined cursor-pointer text-gray-600 mx-2">
-          chevron_left
+           &#x3c;
         </span>
       </button>
       <button onClick={handleNextMonth}>
         <span className="material-icons-outlined cursor-pointer text-gray-600 mx-2">
-          chevron_right
+          &#x3e;
         </span>
       </button>
       <h2 className="ml-4 text-xl text-gray-500 font-bold">
