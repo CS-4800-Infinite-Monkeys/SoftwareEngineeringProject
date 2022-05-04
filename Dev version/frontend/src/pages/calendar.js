@@ -1,14 +1,14 @@
 import React, { useState, useContext, useEffect} from 'react';
-import './App.css';
-import { getMonth } from './util'
-import CalendarHeader from './components/CalendarHeader';
-import Sidebar from './components/Sidebar';
-import Month from './components/Month';
+import './calendar.css';
+import { getMonth } from '../util'
+import CalendarHeader from '../components/CalendarHeader';
+import Sidebar from '../components/Sidebar';
+import Month from '../components/Month';
 import { current } from 'tailwindcss/colors';
-import GlobalContext from './context/GlobalContext';
-import EventModal from "./components/EventModal";
+import GlobalContext from '../context/GlobalContext';
+import EventModal from "../components/EventModal";
 
-function App() {
+function Calendar() {
   const [currentMonth, setCurrentMonth] = useState(getMonth())
   const {monthIndex, showEventModal} = useContext(GlobalContext)
   useEffect(() => {
@@ -30,4 +30,4 @@ function App() {
   );
 }
 
-export default App;
+export default Calendar;

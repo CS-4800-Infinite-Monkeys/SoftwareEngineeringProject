@@ -5,7 +5,7 @@ import Home from "./pages/home";
 import Signin from "./pages/signin";
 import Register from "./pages/register";
 import UserPortal from "./pages/userportal";
-import './index.css';
+//import './index.css';
 
 export default function App(){
   return(

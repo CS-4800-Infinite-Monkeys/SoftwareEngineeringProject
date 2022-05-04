@@ -1,10 +1,23 @@
-import "../index.css"
-import React, { useState } from 'react'
-import Calendar from 'react-calendar'
-import './calendar/calendar.css'
+//import "../index.css"
+import React, { useState, useContext,useEffect } from 'react'
+import "./userportal.css"
+//import './calendar/calendar.css'
 import {Outlet, Link} from "react-router-dom";
 import SigninForm from "./signin";
 import Home from "./home";
+import {useNavigate} from "react-router-dom"
+//import {Redirect} from "react-router-dom";
+import ContextWrapper from '../context/ContextWrapper';
+import Calendar from './calendar'
+import './calendar.css';
+import { getMonth } from '../util'
+import CalendarHeader from '../components/CalendarHeader';
+import Sidebar from '../components/Sidebar';
+import Month from '../components/Month';
+import { current } from 'tailwindcss/colors';
+import GlobalContext from '../context/GlobalContext';
+import EventModal from "../components/EventModal";
+
 
 //const datesToAddClassTo = [tomorrow, in3Days, in5Days];
 
@@ -16,10 +29,10 @@ function tileClassName({ date, view }) {
 }
 
 const UserPortal = () => {
-    
+  
+  
   const [value, onChange] = useState(new Date());
-
-  /*
+  const navigate = useNavigate()
   //generic user for login testing
     const defaultUser = {
       email: "user@test.com",
@@ -53,7 +66,7 @@ const UserPortal = () => {
       });
       console.log("Logged out")
   }
-  //*/
+  //
 
   return (
     /*
@@ -70,23 +83,20 @@ const UserPortal = () => {
         <Link to="/home"><button className="buttonClass">Log Out</button></Link>
         </div>
       ) : (
-        <SigninForm Login ={Login} error={error}/> 
+        useEffect(navigate('signin'))
+        
       )}
     </div>*/
 
     
-    <div>
-      <h1>Your Calendar</h1>
-      <Calendar
-        className="react-calendar"
-        onChange={onChange}
-        value={value}
-        tileClassName={tileClassName}
-      />
-      <Link to="/home"><button className="buttonClass">Log Out</button></Link>
-    </div>
+    <React.StrictMode>
+      <ContextWrapper>
+        <Calendar />
+      </ContextWrapper>
+    </React.StrictMode>
     
   );
+  
 }
 
 export default UserPortal;

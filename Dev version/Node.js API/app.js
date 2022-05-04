@@ -3,13 +3,22 @@ const app = express()
 const mongoose = require('mongoose')
 const port = 3000
 
-
 mongoose.connect("mongodb+srv://jjones:CS4800@cluster0.bddb9.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
 
 const userSchema = new mongoose.Schema({
-    name: String,
-    password: String,
-    email: String
+    name: {
+        type: String,
+        required: true
+        },
+    password: {
+        type: String,
+        required: true
+            },
+    email: {
+        type: String,
+        required: true,
+        unique: true
+        }
 })
 
 userSchema.methods.getInfo = function getInfo(){
@@ -19,7 +28,7 @@ userSchema.methods.getInfo = function getInfo(){
 }
 
 const user = mongoose.model('User', userSchema)
-const testUser = new user({name: 'Bob', password: 'abc123', email: 'bob_bobson@bobmail.bob'})
+const testUser = new user({name: 'Bob', password: 'abc123', email: 'testing@bobmail.bob'})
 
 testUser.save()
 

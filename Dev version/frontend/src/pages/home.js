@@ -1,5 +1,5 @@
 import {Outlet, Link} from "react-router-dom";
-import "../index.css";
+//import "../index.css";
 import React, {useState} from "react";
 import SigninForm from "./signin";
 

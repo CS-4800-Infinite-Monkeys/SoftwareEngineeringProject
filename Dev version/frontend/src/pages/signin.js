@@ -1,6 +1,7 @@
 import React, {useState} from "react"
 import {Outlet, Link} from "react-router-dom";
-import UserPortal from "./userportal";
+
+import {Login} from "./userportal";
 //import "../signin.css"+
 
 const SigninForm = (/*{Login, error} <-- REMOVE THESE LATER*/) => {
@@ -28,7 +29,8 @@ const SigninForm = (/*{Login, error} <-- REMOVE THESE LATER*/) => {
           setUser({
               email: details.email
           });
-          window.location.href = "/userportal"  //DO NOT USE <-- TESTING ONLY (REPLACE WITH ACTUAL ROUTING)
+          //window.location.href = "/userportal"  //DO NOT USE <-- TESTING ONLY (REPLACE WITH ACTUAL ROUTING)
+          this.props.history.push('/userportal', {user: details.email})
 
       }
       else

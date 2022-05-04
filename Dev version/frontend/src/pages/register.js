@@ -1,7 +1,7 @@
 import React, {useState} from "react"
 import {Outlet, Link} from "react-router-dom";
 import Home from "./home";
-import "../index.css";
+//import "../index.css";
 
 const Register = () => {
     const [inputs, setInputs] = useState({})
