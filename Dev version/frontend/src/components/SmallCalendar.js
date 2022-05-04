@@ -44,7 +44,7 @@ export default function SmallCalendar() {
                 <div>
                     
                 <button onClick={handlePrevMonth}> 
-                    <span class="text-gray-600 mx-2">
+                    <span className="cursor-pointer text-gray-600 mx-2">
                         &#x3c; 
                     </span>
                 </button>
