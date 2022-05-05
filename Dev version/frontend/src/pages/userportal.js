@@ -17,6 +17,7 @@ import Month from '../components/Month';
 import { current } from 'tailwindcss/colors';
 import GlobalContext from '../context/GlobalContext';
 import EventModal from "../components/EventModal";
+import { tileProps } from 'react-calendar/dist/umd/shared/propTypes';
 
 
 //const datesToAddClassTo = [tomorrow, in3Days, in5Days];
@@ -28,7 +29,7 @@ function tileClassName({ date, view }) {
   }
 }
 
-const UserPortal = () => {
+const UserPortal = (props) => {
   
   
   const [value, onChange] = useState(new Date());
@@ -67,33 +68,32 @@ const UserPortal = () => {
       console.log("Logged out")
   }
   //
+  console.log(props.data.currentUser)
 
   return (
+    
     /*
     <div className="UserPortal">
-      {(user.email !== "") ? (
-        <div>
-        <h1><span>{user.email}</span> Calendar</h1>
-        <Calendar
-          className="react-calendar"
-          onChange={onChange}
-          value={value}
-          tileClassName={tileClassName}
-        />
-        <Link to="/home"><button className="buttonClass">Log Out</button></Link>
-        </div>
+      {(props.data.loggedIn) ? (
+        <React.StrictMode>
+        <ContextWrapper>
+          <Calendar />
+        </ContextWrapper>
+      </React.StrictMode>
       ) : (
-        useEffect(navigate('signin'))
-        
+        <>
+        <p>Oops! You have to be signed in to do that!</p>
+        <br/>
+        <Link to="/signin"><button className = "buttonClass">Sign In</button></Link>
+        </>
       )}
-    </div>*/
-
-    
+    </div> 
+    */
     <React.StrictMode>
-      <ContextWrapper>
-        <Calendar />
-      </ContextWrapper>
-    </React.StrictMode>
+        <ContextWrapper>
+          <Calendar />
+        </ContextWrapper>
+      </React.StrictMode>
     
   );
   
