@@ -1,11 +1,9 @@
 import React, {useState} from "react"
 import {Outlet, Link} from "react-router-dom";
-import index from "..";
+import UserPortal from "./userportal";
+//import "../signin.css"
 
-import {Login} from "./userportal";
-//import "../signin.css"+
-
-const SigninForm = (props) => {
+const SigninForm = (/*{Login, error} <-- REMOVE THESE LATER*/) => {
     
     const [details, setDetails] = useState({email: "", password: ""});  
     
@@ -27,14 +25,10 @@ const SigninForm = (props) => {
       if(details.email === defaultUser.email && details.password === defaultUser.password)  //here is where we incorporate database user credentials matching
       {
           console.log("Logged in Successfully");
-          /*
           setUser({
               email: details.email
-          });*/
-          props.onLoginAttempt(details.email)
-          //console.log(props.data.currentUser)
-          //window.location.href = "/userportal"  //DO NOT USE <-- TESTING ONLY (REPLACE WITH ACTUAL ROUTING)
-          //this.props.history.push('/userportal')
+          });
+          window.location.href = "/userportal"  //DO NOT USE <-- TESTING ONLY (REPLACE WITH ACTUAL ROUTING)
 
       }
       else
@@ -65,14 +59,14 @@ const SigninForm = (props) => {
                 {(error != "") ? ( <div className="error">{error}</div> ) : ""}
                 <div className="form-group">
                     <label htmlFor="email">Email:</label>
-                    <input type="text" email="email" id="email" style={{color: "black"}} onChange={e => setDetails({...details, email: e.target.value})} value={details.email}></input>
+                    <input type="text" email="email" id="email" onChange={e => setDetails({...details, email: e.target.value})} value={details.email}></input>
                 </div>
                 <div className="form-group">
                     <label htmlFor="password">Password:</label>
-                    <input type="password" password="password" id="password" style={{color: "black"}} onChange={e => setDetails({...details, password: e.target.value})} value={details.password}></input>
+                    <input type="text" password="password" id="password" onChange={e => setDetails({...details, password: e.target.value})} value={details.password}></input>
                 </div>
             </div>
-            <input type="submit" className="buttonClass" value="Log in" />
+            <input type="submit" value="LOG IN" />
             <Link to="/home"><button className="buttonClass">Back to Home</button></Link> 
         </form>  //<input type="submit" value="SIGNIN"></input>
     )

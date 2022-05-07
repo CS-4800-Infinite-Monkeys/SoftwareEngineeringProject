@@ -34,41 +34,42 @@ const UserPortal = (props) => {
   
   const [value, onChange] = useState(new Date());
   const navigate = useNavigate()
-  //generic user for login testing
-    const defaultUser = {
-      email: "user@test.com",
-      password: "password"
-  }
+  
+  // //generic user for login testing
+  //   const defaultUser = {
+  //     email: "user@test.com",
+  //     password: "password"
+  // }
 
-  const [user, setUser] = useState({email: ""});
-  const [error, setError] = useState("");
+  // const [user, setUser] = useState({email: ""});
+  // const [error, setError] = useState("");
 
-  const Login = (details) => {
-      console.log(details);
+  // const Login = (details) => {
+  //     console.log(details);
 
-      if(details.email === defaultUser.email && details.password === defaultUser.password)  //here is where we incorporate database user credentials matching
-      {
-          console.log("Logged in Successfully");
-          setUser({
-              email: details.email
-          });
+  //     if(details.email === defaultUser.email && details.password === defaultUser.password)  //here is where we incorporate database user credentials matching
+  //     {
+  //         console.log("Logged in Successfully");
+  //         setUser({
+  //             email: details.email
+  //         });
 
-      }
-      else
-      {
-          console.log("Credentials do not Match!");
-          setError("Credentials do not Match!");
-      }
-  }
+  //     }
+  //     else
+  //     {
+  //         console.log("Credentials do not Match!");
+  //         setError("Credentials do not Match!");
+  //     }
+  // }
 
-  const Logout = () => {
-      setUser({
-          email: ""
-      });
-      console.log("Logged out")
-  }
-  //
-  console.log(props.data.currentUser)
+  // const Logout = () => {
+  //     setUser({
+  //         email: ""
+  //     });
+  //     console.log("Logged out")
+  // }
+  // //
+  // console.log(props.data.currentUser)
 
   return (
     
