@@ -28,7 +28,7 @@ const SigninForm = (/*{Login, error} <-- REMOVE THESE LATER*/) => {
           setUser({
               email: details.email
           });
-          window.location.href = "/userportal"  //DO NOT USE <-- TESTING ONLY (REPLACE WITH ACTUAL ROUTING)
+          window.location.href = "/userportal"
 
       }
       else
@@ -59,14 +59,14 @@ const SigninForm = (/*{Login, error} <-- REMOVE THESE LATER*/) => {
                 {(error != "") ? ( <div className="error">{error}</div> ) : ""}
                 <div className="form-group">
                     <label htmlFor="email">Email:</label>
-                    <input type="text" email="email" id="email" onChange={e => setDetails({...details, email: e.target.value})} value={details.email}></input>
+                    <input type="text" style={{color:"black"}} email="email" id="email" onChange={e => setDetails({...details, email: e.target.value})} value={details.email}></input>
                 </div>
                 <div className="form-group">
                     <label htmlFor="password">Password:</label>
-                    <input type="text" password="password" id="password" onChange={e => setDetails({...details, password: e.target.value})} value={details.password}></input>
+                    <input type="password" style={{color:"black"}} password="password" id="password" onChange={e => setDetails({...details, password: e.target.value})} value={details.password}></input>
                 </div>
             </div>
-            <input type="submit" value="LOG IN" />
+            <input class="buttonClass" type="submit" value="Log In" />
             <Link to="/home"><button className="buttonClass">Back to Home</button></Link> 
         </form>  //<input type="submit" value="SIGNIN"></input>
     )
