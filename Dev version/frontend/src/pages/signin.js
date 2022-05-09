@@ -53,10 +53,11 @@ const SigninForm = (/*{Login, error} <-- REMOVE THESE LATER*/) => {
     
     
     return (
+        <center>
         <form onSubmit={submitHandler}>
             <div className="form-inner">
                 <h2>Log In</h2>
-                {(error != "") ? ( <div className="error">{error}</div> ) : ""}
+                {(error !== "") ? ( <div className="error">{error}</div> ) : ""}
                 <div className="form-group">
                     <label htmlFor="email">Email:</label>
                     <input type="text" style={{color:"black"}} email="email" id="email" onChange={e => setDetails({...details, email: e.target.value})} value={details.email}></input>
@@ -68,7 +69,9 @@ const SigninForm = (/*{Login, error} <-- REMOVE THESE LATER*/) => {
             </div>
             <input class="buttonClass" type="submit" value="Log In" />
             <Link to="/home"><button className="buttonClass">Back to Home</button></Link> 
-        </form>  //<input type="submit" value="SIGNIN"></input>
+        </form>
+        </center>
+        
     )
 }
 export default SigninForm
